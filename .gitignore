@@ -43,3 +43,7 @@ next-env.d.ts
 # fonts (private - loaded during CI/CD)
 /fonts/
 /public/fonts/
+
+# IDE
+.vscode/
+.idea/
