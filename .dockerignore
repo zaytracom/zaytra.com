@@ -1,9 +1,0 @@
-node_modules
-.next
-.git
-.gitignore
-.vscode
-.idea
-*.md
-.env*
-out
