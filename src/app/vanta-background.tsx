@@ -110,26 +110,40 @@ export const VantaBackground = ({
   }, []);
 
   useEffect(() => {
+    const video = videoRef.current;
     const overlay = overlayRef.current;
-    if (!overlay) return;
+    if (!overlay || !video) return;
 
-    const duration = 3000; // 3 секунды
-    const startTime = performance.now();
+    const startOverlayAnimation = () => {
+      const duration = 3000; // 3 секунды
+      const startTime = performance.now();
 
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // От 0.5 до 0 плавно за 10 секунд
-      const opacity = 0.5 - progress * 0.5;
+      const animate = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // От 0.5 до 0 плавно за 3 секунды
+        const opacity = 0.5 - progress * 0.5;
 
-      overlay.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+        overlay.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
 
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
     };
 
-    requestAnimationFrame(animate);
+    // Если видео уже играет, запускаем сразу
+    if (!video.paused && video.currentTime > 0) {
+      startOverlayAnimation();
+    } else {
+      video.addEventListener("playing", startOverlayAnimation, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener("playing", startOverlayAnimation);
+    };
   }, []);
 
   return (
