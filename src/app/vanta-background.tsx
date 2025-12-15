@@ -140,7 +140,7 @@ export const VantaBackground = ({
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        src="/video-1.mp4"
+        src="/zaytra-background.mp4"
       />
       <div ref={vantaRef} className="absolute inset-0 opacity-50" />
       <div
