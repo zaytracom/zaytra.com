@@ -12,7 +12,7 @@ export const VantaBackground = ({
         width="16"
         height="9"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: "brightness(0.6) contrast(1.2) saturate(1.3)" }}
+        style={{ filter: "brightness(0.7) contrast(1.3) saturate(1.3)" }}
         src="/background-logo.jpeg"
       />
       <div className="relative z-10">{children}</div>
