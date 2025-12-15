@@ -14,7 +14,7 @@ export default function Home() {
         <FaGithub size={28} />
       </a>
       <main className="flex min-h-screen flex-col items-center justify-center p-8">
-        <div className="w-full max-w-md mb-6" style={{ filter: "drop-shadow(0 0 15px rgba(255,255,255,0.40))" }}>
+        <div className="w-full max-w-md mb-6">
           <Logo color="white" className="w-full" />
         </div>
         <p className="text-lg sm:text-xl text-white text-center max-w-md">
