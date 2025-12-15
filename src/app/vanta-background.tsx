@@ -16,35 +16,36 @@ export const VantaBackground = ({
   const overlayRef = useRef<HTMLDivElement>(null);
   const [vantaEffect, setVantaEffect] = useState<VantaEffect | null>(null);
 
-  useEffect(() => {
-    if (!vantaEffect && vantaRef.current) {
-      import("vanta/dist/vanta.net.min").then((NET) => {
-        import("three").then((THREE) => {
-          setVantaEffect(
-            NET.default({
-              el: vantaRef.current,
-              THREE,
-              mouseControls: true,
-              touchControls: true,
-              gyroControls: true,
-              minHeight: 200.0,
-              minWidth: 200.0,
-              backgroundColor: 0x0,
-              backgroundAlpha: 0,
-              color: 0x3f8fff,
-              points: 10,
-              maxDistance: 25,
-              spacing: 25,
-              // showDots: false,
-            })
-          );
-        });
-      });
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
+  // Vanta отключена
+  // useEffect(() => {
+  //   if (!vantaEffect && vantaRef.current) {
+  //     import("vanta/dist/vanta.net.min").then((NET) => {
+  //       import("three").then((THREE) => {
+  //         setVantaEffect(
+  //           NET.default({
+  //             el: vantaRef.current,
+  //             THREE,
+  //             mouseControls: true,
+  //             touchControls: true,
+  //             gyroControls: true,
+  //             minHeight: 200.0,
+  //             minWidth: 200.0,
+  //             backgroundColor: 0x0,
+  //             backgroundAlpha: 0,
+  //             color: 0x3f8fff,
+  //             points: 10,
+  //             maxDistance: 25,
+  //             spacing: 25,
+  //             // showDots: false,
+  //           })
+  //         );
+  //       });
+  //     });
+  //   }
+  //   return () => {
+  //     if (vantaEffect) vantaEffect.destroy();
+  //   };
+  // }, [vantaEffect]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -156,7 +157,7 @@ export const VantaBackground = ({
         className="absolute inset-0 w-full h-full object-cover"
         src="/zaytra-background.mp4"
       />
-      <div ref={vantaRef} className="absolute inset-0 opacity-50" />
+      {/* <div ref={vantaRef} className="absolute inset-0 opacity-50" /> */}
       <div
         ref={overlayRef}
         className="absolute inset-0"
