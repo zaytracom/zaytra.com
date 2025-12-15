@@ -83,7 +83,7 @@ export const VantaBackground = ({
         } else if (currentTime < 10) {
           rate = 0.1;
         } else {
-          rate = 0.06;
+          rate = 0.07;
         }
 
         video.playbackRate = rate;
